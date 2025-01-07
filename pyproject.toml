@@ -1,0 +1,29 @@
+[project]
+name = "dbt_ragster"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9,<3.13"
+dependencies = [
+    "dagster",
+    "dagster-cloud",
+]
+
+[project.optional-dependencies]
+dev = [
+    "dagster-webserver", 
+    "pytest",
+    "praw==7.7.1",
+    "pandas==2.2.0",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.dagster]
+module_name = "dbt_ragster.definitions"
+project_name = "dbt_ragster"
+
+[tool.setuptools.packages.find]
+exclude=["dbt_ragster_tests"]
