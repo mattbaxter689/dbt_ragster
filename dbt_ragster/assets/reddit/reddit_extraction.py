@@ -48,7 +48,7 @@ class RedditExtractor:
                         "created_utc": comment.created_utc,
                         "is_top_level": comment.is_root,
                         "depth": comment.depth,
-                        "gilded": comment.gilded,
+                        "is_submitter": comment.is_submitter,
                         "post_id": comment.link_id,
                         "comment_id": comment.id,
                     }

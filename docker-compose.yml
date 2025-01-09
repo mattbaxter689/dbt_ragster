@@ -7,11 +7,13 @@ services:
       - 3000:3000
     volumes:
       - ./dbt_ragster:/usr/src/app/dbt_ragster
+
   dagster-daemon:
     build:
       context: .
       dockerfile: docker/Dockerfile
     command: "dagster-daemon run"
+
   dagster-postgres:
     image: postgres:17
     ports:
@@ -20,6 +22,28 @@ services:
       - POSTGRES_PASSWORD=secret
     volumes:
       - dagster-postgres:/var/lib/postgresql/data
+
+  dbt_ragster_db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - ./docker/init_db_schema.sql:/docker-entrypoint-initdb.d/init_db_schema.sql
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "${POSTGRES_USER}" ]
+      interval: 5s
+      retries: 5
+    restart: unless-stopped
+    command: -p 5433
+    ports:
+      - 5433:5433
+
 volumes:
   dagster-postgres:
     driver: local
+  pgdata:
+
+
