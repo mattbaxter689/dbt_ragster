@@ -13,6 +13,7 @@ COPY docker/dagster.yaml  .
 COPY workspace.yaml .
 COPY dbt_ragster ./dbt_ragster
 COPY praw.ini .
+COPY .env .
 
 
 CMD ["dagster-webserver", "-w", "workspace.yaml", "-h", "0.0.0.0", "-p", "3000"]

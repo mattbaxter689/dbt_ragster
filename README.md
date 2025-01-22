@@ -2,46 +2,33 @@
 
 This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster project scaffold`](https://docs.dagster.io/getting-started/create-new-project).
 
-## Getting started
 
-First, install your Dagster code location as a Python package. By using the --editable flag, pip will install your Python package in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply.
+## My Goals
+Hi, Hello anyone other than myself that comes along this project! My plan for this entire project is to turn it into something that I can explore numerous ideas and topics around. This includes:
+    - [ ] Improving data modelling
+    - [ ] Working with a scheduler
+    - [ ] Improving data engineering skills
+    - [ ] Working with dbt
+    - [ ] Improving deep learning understanding
 
-```bash
-pip install -e ".[dev]"
-```
+Now, my day-to-day work is in data science, so why would a data scientist be concerned with data modelling, scheduling,.....? It is my own persional opinion that as a Data Scientist, we should be familiar with all of the workings of a pipeline. This is why I have such lofty goals for this project and what I hope to do.
 
-Then, start the Dagster UI web server:
+### To complete:
+These are things that I want to complete for the project:
+    - [ ] Add and schedule dbt runs to the project. Schedule all assets
+    - [ ] Add grafana for visualization of data
+    - [ ] Use LLM to get emotion in reddit comments
+    - [ ] Use the emotion classified from previous step, perform transfer learning on model (This is a bad idea, but I want to use my own data for this, and labelling will be a nightmare)
+    - [ ] Add LLM model training/retraining to the asset execution
 
-```bash
-dagster dev
-```
-
-Open http://localhost:3000 with your browser to see the project.
-
-You can start writing assets in `dbt_ragster/assets.py`. The assets are automatically loaded into the Dagster code location as you define them.
-
-## Development
-
-### Adding new Python dependencies
-
-You can specify new Python dependencies in `setup.py`.
-
-### Unit testing
-
-Tests are in the `dbt_ragster_tests` directory and you can run tests using `pytest`:
-
-```bash
-pytest dbt_ragster_tests
-```
+### Nice to Haves:
+Some things I can look to add to the project once I have the large majority above done:
+    - [ ] Data validation with pydantic dataclasses
+    - [ ] Storing dump of data from current run to S3 (Minio most likely)
+    - [ ] others?
 
 ### Schedules and sensors
 
 If you want to enable Dagster [Schedules](https://docs.dagster.io/concepts/partitions-schedules-sensors/schedules) or [Sensors](https://docs.dagster.io/concepts/partitions-schedules-sensors/sensors) for your jobs, the [Dagster Daemon](https://docs.dagster.io/deployment/dagster-daemon) process must be running. This is done automatically when you run `dagster dev`.
 
 Once your Dagster Daemon is running, you can start turning on schedules and sensors for your jobs.
-
-## Deploy on Dagster Cloud
-
-The easiest way to deploy your Dagster project is to use Dagster Cloud.
-
-Check out the [Dagster Cloud Documentation](https://docs.dagster.cloud) to learn more.

@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS comment_data (
     author TEXT,
     score INTEGER,
     distinguished TEXT NULL,
-    edited BOOLEAN,
+    edited BOOLEAN NULL,
     created_utc TIMESTAMP,
     is_top_level BOOLEAN,
     depth INTEGER,
-    is_submitter INTEGER
+    is_submitter BOOLEAN
 );

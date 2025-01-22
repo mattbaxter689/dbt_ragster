@@ -3,6 +3,12 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
     ports:
       - 3000:3000
     volumes:
@@ -25,6 +31,7 @@ services:
 
   dbt_ragster_db:
     image: postgres
+    container_name: dbt_ragster_db
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
