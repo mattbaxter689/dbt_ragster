@@ -1,5 +1,6 @@
 import praw
 import pandas as pd
+from typing import Iterator, Any
 
 
 class RedditExtractor:
@@ -36,29 +37,18 @@ class RedditExtractor:
             sub_data = self._reddit.subreddit(reddit)
             posts = []
             comments = []
-            for post in sub_data.hot(limit=2):
+            for post in sub_data.hot(limit=25):
                 post.comments.replace_more(limit=100)
-                for comment in post.comments:
-                    comment_data = {
-                        "body": comment.body,
-                        "author": str(comment.author),
-                        "score": comment.score,
-                        "distinguished": comment.distinguished,
-                        "edited": comment.edited,
-                        "created_utc": comment.created_utc,
-                        "is_top_level": comment.is_root,
-                        "depth": comment.depth,
-                        "is_submitter": comment.is_submitter,
-                        "post_id": comment.link_id,
-                        "comment_id": comment.id,
-                    }
-                    comments.append(comment_data)
+                extracted_comments = self.extract_post_comments(
+                    comments=post.comments
+                )
+                comments.extend(extracted_comments)
 
                 post_data = {
                     "title": post.title,
                     "selftext": post.selftext,
                     "score": post.score,
-                    "url": post.url,
+                    "post_url": post.url,
                     "id": post.id,
                     "distinguished": post.distinguished,
                     "locked": post.locked,
@@ -74,5 +64,23 @@ class RedditExtractor:
 
         return pd.DataFrame(posts), pd.DataFrame(comments)
 
-    def extract_post_comments(self, posts) -> pd.DataFrame:
-        pass
+    def extract_post_comments(
+        self, comments: Iterator[Any]
+    ) -> list[dict[str, Any]]:
+        all_comments = []
+        for comment in comments:
+            comment_data = {
+                "body": comment.body,
+                "author": str(comment.author),
+                "score": comment.score,
+                "distinguished": comment.distinguished,
+                "edited": bool(comment.edited),
+                "created_utc": comment.created_utc,
+                "is_top_level": comment.is_root,
+                "depth": comment.depth,
+                "is_submitter": comment.is_submitter,
+                "post_id": str(comment.link_id).replace("t3_", ""),
+                "comment_id": comment.id,
+            }
+            all_comments.append(comment_data)
+        return all_comments
