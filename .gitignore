@@ -3,3 +3,4 @@ obtain_refresh_token.py
 *.egg-info/
 __pycache__/
 *.env
+dbt_ragster/main.py

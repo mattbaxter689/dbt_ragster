@@ -7,6 +7,7 @@ ENV DAGSTER_HOME=/usr/src/app
 # COPY and install dependencies
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+RUN python -m textblob.download_corpora
 
 # Copy source code
 COPY docker/dagster.yaml  .

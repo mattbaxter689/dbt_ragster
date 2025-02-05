@@ -3,5 +3,10 @@ dagster-postgres
 pytest
 praw==7.7.1
 pandas==2.2.0
+spacy==3.8.4
+nltk==3.9.1
+emoji==2.14.1
+num2words==0.5.14
+textblob==0.19.0
 # dagster
 # dagster-cloud
