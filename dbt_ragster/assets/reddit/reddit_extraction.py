@@ -37,7 +37,7 @@ class RedditExtractor:
             sub_data = self._reddit.subreddit(reddit)
             posts = []
             comments = []
-            for post in sub_data.hot(limit=25):
+            for post in sub_data.hot(limit=30):
                 post.comments.replace_more(limit=100)
                 extracted_comments = self.extract_post_comments(
                     comments=post.comments
