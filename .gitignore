@@ -4,3 +4,4 @@ obtain_refresh_token.py
 __pycache__/
 *.env
 dbt_ragster/main.py
+logs/

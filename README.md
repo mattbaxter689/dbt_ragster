@@ -5,13 +5,18 @@ This is a [Dagster](https://dagster.io/) project scaffolded with [`dagster proje
 
 ## My Goals
 Hi, Hello anyone other than myself that comes along this project! My plan for this entire project is to turn it into something that I can explore numerous ideas and topics around. This includes:
-- [ ] Improving data modelling
-- [ ] Working with a scheduler
-- [ ] Improving data engineering skills
-- [ ] Working with dbt
-- [ ] Improving deep learning understanding
+- Improving data modelling
+- Working with a scheduler
+- Improving data engineering skills
+- Working with dbt
+- Improving deep learning understanding
 
 Now, my day-to-day work is in data science, so why would a data scientist be concerned with data modelling, scheduling,.....? It is my own persional opinion that as a Data Scientist, we should be familiar with all of the workings of a pipeline. This is why I have such lofty goals for this project and what I hope to do.
+
+DBT TO ADDS:
+use the env_vars function for the profiles.yml, add more models to the project (think about what transformations I may want), create a macro just because why not, potentially use snapshots in the data.
+
+For the models, think of something that I may want updated every time the project runs (eg, time series stuff) and go from there
 
 ### To complete:
 These are things that I want to complete for the project:
