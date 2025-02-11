@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_post__data
+    description: "Staging model consisting of post data"
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+    
+  - name: stg_comment__data
+    description: "Staging model consisting of comment data"
+    columns:
+      - name: post_id
+        tests:
+          - not_null
+      - name: comment_id
+        tests:
+          - unique
+          - not_null

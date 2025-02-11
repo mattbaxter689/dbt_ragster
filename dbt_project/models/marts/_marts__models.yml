@@ -1,0 +1,7 @@
+version: 2
+
+models:
+  - name: avg_score_post_comments_incremental
+    description: "Avg comment score per post, incremental model"
+  - name: avg_score_post_comments
+    description: "Avg comment score per post."
