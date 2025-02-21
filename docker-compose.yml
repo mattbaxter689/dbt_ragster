@@ -13,6 +13,7 @@ services:
       - 3000:3000
     volumes:
       - ./dbt_ragster:/usr/src/app/dbt_ragster
+      - ./dbt_project:/usr/src/app/dbt_project
 
   dagster-daemon:
     build:

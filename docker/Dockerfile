@@ -15,6 +15,7 @@ COPY workspace.yaml .
 COPY dbt_ragster ./dbt_ragster
 COPY praw.ini .
 COPY .env .
+COPY ./../dbt_project dbt_project
 
 
 CMD ["dagster-webserver", "-w", "workspace.yaml", "-h", "0.0.0.0", "-p", "3000"]
