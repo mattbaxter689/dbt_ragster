@@ -20,7 +20,7 @@ For the models, think of something that I may want updated every time the projec
 
 ### To complete:
 These are things that I want to complete for the project:
-- [ ] Add and schedule dbt runs to the project. Schedule all assets
+- [x] Add and schedule dbt runs to the project. Schedule all assets
 - [ ] Add grafana for visualization of data
 - [ ] Use LLM to get emotion in reddit comments
 - [ ] Use the emotion classified from previous step, perform transfer learning on model (This is a bad idea, but I want to use my own data for this, and labelling will be a nightmare)
