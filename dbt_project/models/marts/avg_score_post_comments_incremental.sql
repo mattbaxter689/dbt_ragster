@@ -15,7 +15,7 @@ final as (
         distinct post_id, 
         created_utc::date, 
         {{ round_average('score') }} as avg
-    from comment_data
+    from cte
 
     {% if is_incremental() %}
         where created_utc::date >= (select coalesce(max(created_utc::date), '1900-01-01') from {{ this }} )

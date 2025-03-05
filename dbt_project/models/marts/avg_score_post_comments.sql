@@ -9,7 +9,7 @@ final as (
         distinct post_id, 
         created_utc::date, 
         {{ round_average('score') }} as avg_score
-    from comment_data
+    from cte
     group by post_id, created_utc::date
 
 )

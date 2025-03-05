@@ -5,3 +5,9 @@ models:
     description: "Avg comment score per post, incremental model"
   - name: avg_score_post_comments
     description: "Avg comment score per post."
+  - name: avg_post_score
+    description: "Avg post score"
+  - name: avg_post_upvote_ratio
+    description: "Avg post upvote ratio by date"
+  - name: post_author_commenter
+    description: "Author of post commented on post"
