@@ -21,10 +21,16 @@ For the models, think of something that I may want updated every time the projec
 ### To complete:
 These are things that I want to complete for the project:
 - [x] Add and schedule dbt runs to the project. Schedule all assets
-- [ ] Add grafana for visualization of data
-- [ ] Use LLM to get emotion in reddit comments
-- [ ] Use the emotion classified from previous step, perform transfer learning on model (This is a bad idea, but I want to use my own data for this, and labelling will be a nightmare)
-- [ ] Add LLM model training/retraining to the asset execution
+- [ ] Add sentiment score to data. Fit llm to data (Will be bad since training data is so small, but it is what it is)
+- [ ] Add grafana to visualize
+
+#### FOR LLM
+Todo:
+- [ ] Add training test split
+- [ ] Add function to encode data
+- [ ] Add function to pad data for the model
+- [ ] Add Dataset and Dataloaders to the model
+- [ ] Try to create a model and test it
 
 ### Nice to Haves:
 Some things I can look to add to the project once I have the large majority above done:
