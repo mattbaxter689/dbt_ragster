@@ -1,34 +1,34 @@
 services:
-  dagster-webserver:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_HOST=${POSTGRES_HOST}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-    ports:
-      - 3000:3000
-    volumes:
-      - ./dbt_ragster:/usr/src/app/dbt_ragster
-      - ./dbt_project:/usr/src/app/dbt_project
+  # dagster-webserver:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/Dockerfile
+  #   environment:
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  #     - POSTGRES_HOST=${POSTGRES_HOST}
+  #     - POSTGRES_PORT=${POSTGRES_PORT}
+  #   ports:
+  #     - 3000:3000
+  #   volumes:
+  #     - ./dbt_ragster:/usr/src/app/dbt_ragster
+  #     - ./dbt_project:/usr/src/app/dbt_project
 
-  dagster-daemon:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    command: "dagster-daemon run"
+  # dagster-daemon:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/Dockerfile
+  #   command: "dagster-daemon run"
 
-  dagster-postgres:
-    image: postgres:17
-    ports:
-      - 5432:5432
-    environment:
-      - POSTGRES_PASSWORD=secret
-    volumes:
-      - dagster-postgres:/var/lib/postgresql/data
+  # dagster-postgres:
+  #   image: postgres:17
+  #   ports:
+  #     - 5432:5432
+  #   environment:
+  #     - POSTGRES_PASSWORD=secret
+  #   volumes:
+  #     - dagster-postgres:/var/lib/postgresql/data
 
   dbt_ragster_db:
     image: postgres
